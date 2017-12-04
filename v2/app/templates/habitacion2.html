@@ -1,0 +1,227 @@
+<!doctype html>
+<html><head>
+    <meta charset="utf-8">
+    <title>DomoHouse!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Alvarez - Alvarez.is">
+
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/main.css" rel="stylesheet">
+    <link href="static/css/font-style.css" rel="stylesheet">
+    <link href="static/css/flexslider.css" rel="stylesheet">
+    
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="static/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="static/ico/apple-touch-icon-57-precomposed.png">
+
+  	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
+  	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+    $("#btn-blog-next").click(function () {
+      $('#blogCarousel').carousel('next')
+    });
+     $("#btn-blog-prev").click(function () {
+      $('#blogCarousel').carousel('prev')
+    });
+
+     $("#btn-client-next").click(function () {
+      $('#clientCarousel').carousel('next')
+    });
+     $("#btn-client-prev").click(function () {
+      $('#clientCarousel').carousel('prev')
+    });
+    
+});
+
+ $(window).load(function(){
+
+    $('.flexslider').flexslider({
+        animation: "slide",
+        slideshow: true,
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+    });  
+});
+
+</script>
+
+
+    
+  </head>
+  <body>
+  
+  	<!-- NAVIGATION MENU -->
+
+    <div class="navbar-nav navbar-inverse navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="Inicio"><img src="static/img/logo30.png" alt=""> BLOCKS Dashboard</a>
+        </div> 
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="Inicio"><i class="icon-home icon-white"></i> Home</a></li>
+              <li><a href="Habitacion1"><i class="icon-calendar icon-white"></i> Habitacion1</a></li>
+              <li class="active"><a href="Habitacion2"><i class="icon-th icon-white"></i> Habitacion2</a></li>
+              <li><a href="Habitacion3"><i class="icon-lock icon-white"></i> Habitacion3</a></li>
+              <li><a href="Manager"><i class="icon-folder-open icon-white"></i> File Manager</a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="container">
+
+	  <!-- FIRST ROW OF BLOCKS -->     
+      <div class="row">
+
+      <!-- USER PROFILE BLOCK -->
+        <div class="col-sm-3 col-lg-3">
+      		<div class="dash-unit" style="height:200px;">
+	      		<dtitle>Dueño</dtitle>
+	      		<hr>
+				<div class="thumbnail">
+					<img src="static/img/face80x80.jpg" alt="Carolina Maio" class="img-circle">
+				</div><!-- /thumbnail -->
+				<h1>Carolina Maio</h1>
+				</div>
+
+        </div>
+
+        <!-- SWITCHES BLOCK -->     
+		<div class="col-sm-3 col-lg-3">
+      <div class="dash-unit">
+            <dtitle>Switches</dtitle>
+            <hr>
+            <div class="info-user">
+          <span aria-hidden="true" class="li_params fs2"></span>
+        </div>
+        <br>
+        <form method="POST">
+        <h3>Luces</h3>
+        <div class="switch">
+          <input onChange='this.form.submit();' type="radio" class="switch-input" name="luz" value="on" id="on" {% if estadoLuz == True %} checked="" {% endif %} >
+          <label for="on" class="switch-label switch-label-off">On</label>
+          <input onChange='this.form.submit();' type="radio" class="switch-input" name="luz" value="off" id="off" {% if estadoLuz == False %} checked="" {% endif %} >
+          <label for="off" class="switch-label switch-label-on">Off</label>
+          <span class="switch-selection"></span>
+        </div>
+        </form>
+        <form method="POST">
+        <h3>Cortina</h3>
+        <div class="switch switch-blue">
+          <input onChange='this.form.submit();' type="radio" class="switch-input" name="cortina" value="up" id="week2" {% if estadoCortina==True %} checked="" {% endif %}>
+          <label for="week2" class="switch-label switch-label-off">Up</label>
+          <input onChange='this.form.submit();' type="radio" class="switch-input" name="cortina" value="down" id="month2" {% if estadoCortina==False %} checked="" {% endif %}>
+          <label for="month2" class="switch-label switch-label-on">Down</label>
+          <span class="switch-selection"></span>
+        </div>
+        </form>
+      </div>
+      
+    </div>
+      
+
+       <div class="col-sm-3 col-lg-3">
+
+      <!-- LOCAL TIME BLOCK -->
+      		<div class="half-unit">
+	      		<dtitle>Local Time</dtitle>
+	      		<hr>
+		      		<div class="clockcenter">
+			      		<digiclock>12:45:25</digiclock>
+		      		</div>
+			</div>
+
+      <!-- SERVER UPTIME -->
+			<div class="half-unit">
+	      		<dtitle>Server Uptime</dtitle>
+	      		<hr>
+	      		<div class="cont">
+					<p><img src="static/img/up.png" alt=""> <bold>Up</bold> | 356ms.</p>
+				</div>
+			</div>
+
+        </div>
+     
+      <!-- DONUT CHART BLOCK -->
+        <div class="col-sm-3 col-lg-3">
+      		<div class="dash-unit">
+		  		<dtitle>Temperatura exterior</dtitle>
+		  		<hr>
+		  		<center><img src="https://www.meteored.mx/wimages/foto89d7c47f8f8e3b63de0f4c07bfc5febe.png"></center>
+	        	
+			</div>
+        </div>
+        </div><!-- /row -->
+        <div class="col-sm-3 col-lg-3">
+      		<div class="dash-unit">
+		  		<dtitle>Temperatura interior</dtitle>
+		  		<hr>
+		  		<center><img src="https://www.meteored.mx/wimages/foto89d7c47f8f8e3b63de0f4c07bfc5febe.png"></center>
+	        	
+			</div>
+        </div>
+
+
+
+         
+		<div class="row">
+
+ 	  
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="static/js/bootstrap.js"></script>
+	<script type="text/javascript" src="static/js/lineandbars.js"></script>
+    
+	<script type="text/javascript" src="static/js/dash-charts.js"></script>
+	<script type="text/javascript" src="static/js/gauge.js"></script>
+	
+	<!-- NOTY JAVASCRIPT -->
+	<script type="text/javascript" src="static/js/noty/jquery.noty.js"></script>
+	<script type="text/javascript" src="static/js/noty/layouts/top.js"></script>
+	<script type="text/javascript" src="static/js/noty/layouts/topLeft.js"></script>
+	<script type="text/javascript" src="static/js/noty/layouts/topRight.js"></script>
+	<script type="text/javascript" src="static/js/noty/layouts/topCenter.js"></script>
+	
+	<!-- You can add more layouts if you want -->
+	<script type="text/javascript" src="static/js/noty/themes/default.js"></script>
+    <!-- <script type="text/javascript" src="static/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
+	<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="static/js/jquery.flexslider.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="static/js/admin.js"></script>
+  
+</body></html>
