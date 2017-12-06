@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from flask import request, redirect, render_template, url_for, json, flash, Flask
-from app import app #Comentar para srv. prod.
 import datetime
 import forms
 import arduino
+
+
+app = Flask(__name__)
 
 ###VARIABLES
 ###LUCES
@@ -204,4 +206,5 @@ def Manager():
 	return render_template('manager.html')
 
 
-
+if __name__ == "__main__":
+	app.run(host='192.168.0.8', port=80, debug=True)
